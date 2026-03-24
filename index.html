@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GPSC Exam Roadmap 2026–2027</title>
+<style>
+  :root {
+    --orange: #FF6B2B;
+    --blue: #1A3C5E;
+    --green: #27AE60;
+    --yellow: #F39C12;
+    --red: #E74C3C;
+    --purple: #8E44AD;
+    --light: #F8F9FA;
+    --card: #ffffff;
+    --border: #E0E0E0;
+    --text: #2C3E50;
+    --subtext: #7F8C8D;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--light); color: var(--text); }
+
+  header {
+    background: linear-gradient(135deg, var(--blue) 0%, #2C5F8A 100%);
+    color: white; padding: 24px 20px; text-align: center;
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+  }
+  header h1 { font-size: clamp(1.2rem, 4vw, 1.8rem); margin-bottom: 4px; }
+  header p { font-size: clamp(0.8rem, 2.5vw, 1rem); opacity: 0.85; }
+
+  nav {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    justify-content: center; padding: 14px 16px;
+    background: white; border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; z-index: 99;
+  }
+  nav a {
+    background: var(--light); border: 1.5px solid var(--border);
+    border-radius: 20px; padding: 6px 14px;
+    font-size: 0.82rem; text-decoration: none; color: var(--text);
+    transition: all 0.2s; cursor: pointer;
+  }
+  nav a:hover { background: var(--blue); color: white; border-color: var(--blue); }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 20px 16px; }
+
+  /* Progress Tracker */
+  .progress-section {
+    background: var(--card); border-radius: 12px;
+    padding: 20px; margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .progress-section h2 { font-size: 1rem; color: var(--blue); margin-bottom: 14px; }
+  .progress-bar-wrap { background: #E8ECF0; border-radius: 20px; height: 20px; margin-bottom: 6px; overflow: hidden; }
+  .progress-bar { height: 100%; border-radius: 20px; background: linear-gradient(90deg, var(--green), #2ECC71); transition: width 0.4s; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; }
+  .progress-bar span { color: white; font-size: 0.72rem; font-weight: bold; }
+  .progress-label { font-size: 0.8rem; color: var(--subtext); margin-bottom: 14px; }
+  .milestone-checks { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  @media (max-width: 480px) { .milestone-checks { grid-template-columns: 1fr; } }
+  .check-item { display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 6px 10px; border-radius: 8px; transition: background 0.2s; }
+  .check-item:hover { background: var(--light); }
+  .check-item input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--green); cursor: pointer; }
+  .check-item label { font-size: 0.83rem; cursor: pointer; }
+  .check-item.done label { text-decoration: line-through; color: var(--subtext); }
+
+  /* Phase Cards */
+  .phase-card {
+    background: var(--card); border-radius: 12px;
+    margin-bottom: 16px; overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border-left: 5px solid var(--blue);
+  }
+  .phase-card.p1 { border-color: var(--orange); }
+  .phase-card.p2 { border-color: var(--blue); }
+  .phase-card.p3 { border-color: var(--green); }
+  .phase-card.p4 { border-color: var(--red); }
+
+  .phase-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 16px 20px; cursor: pointer; user-select: none;
+  }
+  .phase-header:hover { background: var(--light); }
+  .phase-header h3 { font-size: clamp(0.95rem, 3vw, 1.1rem); }
+  .phase-tag {
+    font-size: 0.75rem; padding: 3px 10px; border-radius: 12px;
+    color: white; font-weight: 600; white-space: nowrap; margin-left: 8px;
+  }
+  .p1 .phase-tag { background: var(--orange); }
+  .p2 .phase-tag { background: var(--blue); }
+  .p3 .phase-tag { background: var(--green); }
+  .p4 .phase-tag { background: var(--red); }
+  .toggle-icon { font-size: 1.1rem; transition: transform 0.3s; flex-shrink: 0; }
+  .phase-body { padding: 0 20px 20px; display: none; }
+  .phase-body.open { display: block; }
+  .phase-goal {
+    background: var(--light); border-radius: 8px;
+    padding: 10px 14px; margin-bottom: 14px;
+    font-size: 0.85rem; color: var(--subtext);
+    border-left: 3px solid currentColor;
+  }
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media (max-width: 480px) { .info-grid { grid-template-columns: 1fr; } }
+  .info-box { background: var(--light); border-radius: 8px; padding: 12px; }
+  .info-box h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--subtext); margin-bottom: 8px; }
+  .info-box ul { list-style: none; }
+  .info-box ul li { font-size: 0.83rem; padding: 3px 0; padding-left: 16px; position: relative; }
+  .info-box ul li::before { content: "→"; position: absolute; left: 0; color: var(--orange); font-weight: bold; }
+
+  /* Timetable */
+  .timetable { width: 100%; border-collapse: collapse; margin-top: 6px; font-size: 0.82rem; }
+  .timetable th { background: var(--blue); color: white; padding: 8px 10px; text-align: left; }
+  .timetable td { padding: 8px 10px; border-bottom: 1px solid var(--border); }
+  .timetable tr:hover td { background: #F0F4F8; }
+  .time-badge { background: var(--blue); color: white; border-radius: 4px; padding: 2px 8px; font-size: 0.75rem; white-space: nowrap; }
+  .hrs-badge { font-weight: bold; color: var(--orange); }
+  .subject-cell { font-weight: 500; }
+
+  /* Resources */
+  .resource-tabs { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+  .rtab { padding: 6px 14px; border-radius: 20px; border: 1.5px solid var(--border); background: var(--light); font-size: 0.82rem; cursor: pointer; transition: all 0.2s; }
+  .rtab.active { background: var(--blue); color: white; border-color: var(--blue); }
+  .resource-panel { display: none; }
+  .resource-panel.active { display: block; }
+  .resource-list { list-style: none; }
+  .resource-list li { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.85rem; display: flex; align-items: flex-start; gap: 10px; }
+  .resource-list li:last-child { border: none; }
+  .badge { flex-shrink: 0; font-size: 0.7rem; padding: 2px 8px; border-radius: 10px; font-weight: 600; margin-top: 2px; }
+  .badge.free { background: #D5F5E3; color: #1E8449; }
+  .badge.buy { background: #FDEBD0; color: #A04000; }
+  .badge.daily { background: #D6EAF8; color: #1A5276; }
+
+  /* Monthly milestones */
+  .milestone-timeline { position: relative; padding-left: 24px; }
+  .milestone-timeline::before { content: ""; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: var(--border); }
+  .milestone-item { position: relative; margin-bottom: 16px; }
+  .milestone-item::before { content: ""; position: absolute; left: -20px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--orange); border: 2px solid white; box-shadow: 0 0 0 2px var(--orange); }
+  .milestone-item h4 { font-size: 0.85rem; color: var(--blue); margin-bottom: 4px; }
+  .milestone-item p { font-size: 0.82rem; color: var(--text); }
+
+  /* Tips */
+  .tips-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+  .tip-card { background: var(--light); border-radius: 10px; padding: 14px; border-top: 3px solid var(--orange); }
+  .tip-card .tip-icon { font-size: 1.4rem; margin-bottom: 6px; }
+  .tip-card h4 { font-size: 0.85rem; margin-bottom: 4px; color: var(--blue); }
+  .tip-card p { font-size: 0.8rem; color: var(--text); line-height: 1.5; }
+
+  /* Budget box */
+  .budget-box { background: linear-gradient(135deg, #1A3C5E, #2C5F8A); color: white; border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+  .budget-box h3 { margin-bottom: 12px; }
+  .budget-items { display: flex; flex-wrap: wrap; gap: 10px; }
+  .budget-item { background: rgba(255,255,255,0.12); border-radius: 8px; padding: 8px 14px; font-size: 0.82rem; }
+
+  section { margin-bottom: 24px; }
+  section > h2 { font-size: 1.05rem; color: var(--blue); padding-bottom: 8px; border-bottom: 2px solid var(--orange); margin-bottom: 16px; }
+
+  footer { text-align: center; padding: 20px; color: var(--subtext); font-size: 0.8rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🎯 GPSC Class 1–2 Exam Roadmap</h1>
+  <p>March 2026 – May 2027 Prelims | 14-Month Study Plan</p>
+</header>
+
+<nav>
+  <a onclick="scrollTo('progress')">📊 Progress</a>
+  <a onclick="scrollTo('phases')">📅 Phases</a>
+  <a onclick="scrollTo('timetable')">⏰ Timetable</a>
+  <a onclick="scrollTo('resources')">📚 Resources</a>
+  <a onclick="scrollTo('milestones')">🏁 Milestones</a>
+  <a onclick="scrollTo('mockmains')">🎯 Mock & Mains</a>
+  <a onclick="scrollTo('tips')">💡 Tips</a>
+</nav>
+
+<div class="container">
+
+  <!-- Progress Tracker -->
+  <section id="progress">
+    <h2>📊 My Progress Tracker</h2>
+    <div class="progress-section">
+      <h2>Overall Completion</h2>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar" id="overallBar" style="width:0%"><span id="overallPct">0%</span></div>
+      </div>
+      <div class="progress-label" id="overallLabel">0 of 12 milestones completed</div>
+      <div class="milestone-checks" id="checkList">
+        <div class="check-item" id="ci0"><input type="checkbox" id="c0" onchange="updateProgress()"><label for="c0">All NCERT 6–12 Complete</label></div>
+        <div class="check-item" id="ci1"><input type="checkbox" id="c1" onchange="updateProgress()"><label for="c1">All GCERT 6–12 Complete</label></div>
+        <div class="check-item" id="ci2"><input type="checkbox" id="c2" onchange="updateProgress()"><label for="c2">Laxmikant 1st Reading</label></div>
+        <div class="check-item" id="ci3"><input type="checkbox" id="c3" onchange="updateProgress()"><label for="c3">CA Notebook Started</label></div>
+        <div class="check-item" id="ci4"><input type="checkbox" id="c4" onchange="updateProgress()"><label for="c4">Spectrum (Modern India)</label></div>
+        <div class="check-item" id="ci5"><input type="checkbox" id="c5" onchange="updateProgress()"><label for="c5">Gujarat History Book Done</label></div>
+        <div class="check-item" id="ci6"><input type="checkbox" id="c6" onchange="updateProgress()"><label for="c6">1000+ MCQs Practiced</label></div>
+        <div class="check-item" id="ci7"><input type="checkbox" id="c7" onchange="updateProgress()"><label for="c7">Ramesh Singh Economy</label></div>
+        <div class="check-item" id="ci8"><input type="checkbox" id="c8" onchange="updateProgress()"><label for="c8">Full Syllabus Covered</label></div>
+        <div class="check-item" id="ci9"><input type="checkbox" id="c9" onchange="updateProgress()"><label for="c9">Notes Concise (200 pg/subj)</label></div>
+        <div class="check-item" id="ci10"><input type="checkbox" id="c10" onchange="updateProgress()"><label for="c10">20 Sectional Tests Done</label></div>
+        <div class="check-item" id="ci11"><input type="checkbox" id="c11" onchange="updateProgress()"><label for="c11">50 Full Mock Tests Done</label></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Phases -->
+  <section id="phases">
+    <h2>📅 Study Phases</h2>
+
+    <div class="phase-card p1">
+      <div class="phase-header" onclick="togglePhase(this)">
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px;">
+          <h3>Phase 1: Foundation</h3>
+          <span class="phase-tag">Month 1–4 | Apr–Jul 2026</span>
+        </div>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="phase-body open">
+        <div class="phase-goal" style="color:var(--orange)">🎯 Goal: 50% syllabus covered + notes banane ki aadat. Weak areas pe focus: Polity + Gujarat History/Geo + CA shuru.</div>
+        <div class="info-grid">
+          <div class="info-box">
+            <h4>📖 What to Study</h4>
+            <ul>
+              <li>NCERT Class 6–12 (all subjects)</li>
+              <li>GCERT Class 6–12 (Gujarat focus)</li>
+              <li>Laxmikant – Polity (1st reading)</li>
+              <li>Gujarat History – basics</li>
+              <li>Current Affairs notebook start</li>
+            </ul>
+          </div>
+          <div class="info-box">
+            <h4>✅ End-of-Phase Target</h4>
+            <ul>
+              <li>All NCERT + GCERT complete</li>
+              <li>Laxmikant 1st reading done</li>
+              <li>CA notebook: daily habit</li>
+              <li>500+ MCQs practiced</li>
+              <li>Weak areas identified</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-card p2">
+      <div class="phase-header" onclick="togglePhase(this)">
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px;">
+          <h3>Phase 2: Core Coverage</h3>
+          <span class="phase-tag">Month 5–9 | Aug–Dec 2026</span>
+        </div>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="phase-body">
+        <div class="phase-goal" style="color:var(--blue)">🎯 Goal: 100% syllabus cover + daily MCQ practice. Standard books + Gujarat specific + full Current Affairs.</div>
+        <div class="info-grid">
+          <div class="info-box">
+            <h4>📖 What to Study</h4>
+            <ul>
+              <li>Spectrum – Modern India</li>
+              <li>Gujarat History (full book)</li>
+              <li>Ramesh Singh – Economy</li>
+              <li>Shankar IAS – Environment</li>
+              <li>Gujarat Geography + Economy Survey</li>
+            </ul>
+          </div>
+          <div class="info-box">
+            <h4>✅ End-of-Phase Target</h4>
+            <ul>
+              <li>Full syllabus covered (100%)</li>
+              <li>Test series started (Month 6)</li>
+              <li>1000+ MCQs total done</li>
+              <li>Daily CA review habit strong</li>
+              <li>2nd revision of Laxmikant</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-card p3">
+      <div class="phase-header" onclick="togglePhase(this)">
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px;">
+          <h3>Phase 3: Revision + Integration</h3>
+          <span class="phase-tag">Month 10–12 | Jan–Mar 2027</span>
+        </div>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="phase-body">
+        <div class="phase-goal" style="color:var(--green)">🎯 Goal: Speed + accuracy 80%+. 2nd/3rd revision + notes concise + Mains answer writing start.</div>
+        <div class="info-grid">
+          <div class="info-box">
+            <h4>📖 What to Study</h4>
+            <ul>
+              <li>Concise notes (200 pg max/subject)</li>
+              <li>2nd–3rd revision of all subjects</li>
+              <li>20 sectional tests + analysis</li>
+              <li>Mains answer writing (1/week)</li>
+              <li>CSAT intensive practice</li>
+            </ul>
+          </div>
+          <div class="info-box">
+            <h4>✅ End-of-Phase Target</h4>
+            <ul>
+              <li>Notes compressed (200 pg/subj)</li>
+              <li>Accuracy: 80%+ in mock tests</li>
+              <li>20+ sectional tests completed</li>
+              <li>Speed: 2 min/question average</li>
+              <li>CSAT score: 8/10 target</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-card p4">
+      <div class="phase-header" onclick="togglePhase(this)">
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px;">
+          <h3>Phase 4: Peak & Mock</h3>
+          <span class="phase-tag">Month 13–14 | Apr–May 2027</span>
+        </div>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="phase-body">
+        <div class="phase-goal" style="color:var(--red)">🎯 Goal: PRELIMS CRACK – GS1 120+, CSAT 100+. Only revision + 50+ full mocks + CSAT intensive.</div>
+        <div class="info-grid">
+          <div class="info-box">
+            <h4>📖 What to Do</h4>
+            <ul>
+              <li>ONLY revision (no new topics)</li>
+              <li>50+ full Prelims mock tests</li>
+              <li>Liberty / Sunya GPSC online series</li>
+              <li>Previous 10-yr papers review</li>
+              <li>CSAT – RS Aggarwal intensive</li>
+            </ul>
+          </div>
+          <div class="info-box">
+            <h4>🏆 Final Targets</h4>
+            <ul>
+              <li>GS1 score: 120+ in mocks</li>
+              <li>CSAT score: 100+</li>
+              <li>50+ full mocks completed</li>
+              <li>Mock analysis: 2–3 hrs/test</li>
+              <li>Current week CA daily</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Daily Timetable -->
+  <section id="timetable">
+    <h2>⏰ Daily Timetable (8.5 Hours)</h2>
+    <div style="background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+      <div style="overflow-x:auto;">
+        <table class="timetable">
+          <thead>
+            <tr><th>Time</th><th>Activity</th><th>Duration</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="time-badge">5:30 AM</span></td><td>Wake Up + Exercise/Yoga</td><td class="hrs-badge">20 min</td><td>Health compulsory!</td></tr>
+            <tr style="background:#FFF8F5"><td><span class="time-badge">6:00–7:30</span></td><td class="subject-cell">📰 Current Affairs</td><td class="hrs-badge">1.5 hrs</td><td>Newspaper + 1 page notes + Gujarat schemes</td></tr>
+            <tr style="background:#F5F8FF"><td><span class="time-badge">7:30–9:30</span></td><td class="subject-cell">📚 Static Subject 1</td><td class="hrs-badge">2 hrs</td><td>Polity / Gujarat History (weak areas first 4 months)</td></tr>
+            <tr><td><span class="time-badge">9:30–1:00</span></td><td>💻 Freelance Work</td><td>—</td><td>+ Breakfast / Lunch break</td></tr>
+            <tr style="background:#F5FFF8"><td><span class="time-badge">1:00–2:00</span></td><td>😴 Rest / Power Nap</td><td>1 hr</td><td>Important for memory consolidation</td></tr>
+            <tr style="background:#F5F8FF"><td><span class="time-badge">2:00–4:00</span></td><td class="subject-cell">📚 Static Subject 2</td><td class="hrs-badge">2 hrs</td><td>Geography / Economy / Science / Environment</td></tr>
+            <tr style="background:#FFFAF0"><td><span class="time-badge">4:00–5:00</span></td><td class="subject-cell">🔢 CSAT Practice</td><td class="hrs-badge">1 hr</td><td>Quant + Reasoning – target 8/10 (currently 5/10)</td></tr>
+            <tr style="background:#FFF5F8"><td><span class="time-badge">5:00–6:00</span></td><td class="subject-cell">🗣️ Language + Gujarat Culture</td><td class="hrs-badge">1 hr</td><td>Gujarati / English practice + Art/Culture</td></tr>
+            <tr style="background:#F5FFF8"><td><span class="time-badge">6:00–7:00</span></td><td class="subject-cell">✅ MCQ + Revision</td><td class="hrs-badge">1 hr</td><td>50 questions + note wrong answers</td></tr>
+            <tr><td><span class="time-badge">7:00 PM+</span></td><td>🍽️ Dinner + Family Time</td><td>—</td><td>Sleep by 11 PM (7 hrs sleep must)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="padding:14px 20px;background:var(--light);font-size:0.82rem;color:var(--subtext)">
+        📅 <strong>Weekly:</strong> Har hafte subject rotate (Mon: Polity, Tue: Gujarat History...) &nbsp;|&nbsp; 
+        📆 <strong>Sunday:</strong> 3 hrs full subject test + analysis + light revision (no new topic)
+      </div>
+    </div>
+  </section>
+
+  <!-- Resources -->
+  <section id="resources">
+    <h2>📚 Study Resources</h2>
+    <div style="background:var(--card);border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+      <div class="resource-tabs">
+        <div class="rtab active" onclick="showTab('free')">🆓 Free Resources</div>
+        <div class="rtab" onclick="showTab('buy')">🛒 Buy (₹4000 budget)</div>
+        <div class="rtab" onclick="showTab('ca')">📰 Current Affairs</div>
+        <div class="rtab" onclick="showTab('lang')">🗣️ Language</div>
+      </div>
+
+      <div class="resource-panel active" id="tab-free">
+        <ul class="resource-list">
+          <li><span class="badge free">FREE</span><span>NCERT Class 6–12 (all subjects) → <strong>ncert.nic.in</strong></span></li>
+          <li><span class="badge free">FREE</span><span>GCERT Class 6–12 (Gujarat History, Geography, Science) → <strong>gcert.gujarat.gov.in</strong> or <strong>rijadeja.com</strong></span></li>
+          <li><span class="badge free">FREE</span><span>Previous 10-year GPSC Prelims papers + answer keys → <strong>gpsc.gujarat.gov.in</strong></span></li>
+          <li><span class="badge free">FREE</span><span>YouTube: <strong>Sunya GPSC</strong> (Shruti Panchal Rank-9 – booklist & strategy)</span></li>
+          <li><span class="badge free">FREE</span><span>YouTube: <strong>DICS Ahmedabad</strong> + <strong>GPSC Guru</strong></span></li>
+          <li><span class="badge free">FREE</span><span>Gujarat Economic Survey (free PDF every year) → <strong>gujaratindia.gov.in</strong></span></li>
+          <li><span class="badge free">FREE</span><span>Vision IAS PT365 monthly PDFs (free download)</span></li>
+        </ul>
+      </div>
+
+      <div class="resource-panel" id="tab-buy">
+        <ul class="resource-list">
+          <li><span class="badge buy">BUY</span><span><strong>Indian Polity – M. Laxmikant</strong> (6th/7th ed.) – Sabse important, 2–3 baar padhna</span></li>
+          <li><span class="badge buy">BUY</span><span><strong>Modern India – Spectrum</strong> (Rajiv Ahir) ya Bipan Chandra</span></li>
+          <li><span class="badge buy">BUY</span><span><strong>Gujarat History</strong> – "Gujaratno Itihas" (Ajay Patel / Hiren Kakdiya) ya Liberty "Gnandeep Gujarat History"</span></li>
+          <li><span class="badge buy">BUY</span><span><strong>Gujarat Geography</strong> – Prof. Manjulaben Dave + GCERT</span></li>
+          <li><span class="badge buy">BUY</span><span><strong>Indian Economy – Ramesh Singh</strong> (latest edition)</span></li>
+          <li><span class="badge buy">BUY</span><span><strong>Environment – Shankar IAS</strong> ya NCERT + current</span></li>
+          <li><span class="badge buy">BUY</span><span><strong>CSAT – RS Aggarwal</strong> (Quant + Reasoning) + previous papers</span></li>
+          <li><span class="badge buy">OPTIONAL</span><span>Liberty GPSC Class 1–2 Comprehensive Guide (backup)</span></li>
+        </ul>
+        <div style="background:#FFF8F0;border-radius:8px;padding:12px;margin-top:12px;font-size:0.82rem;">
+          🛍️ <strong>Where to buy:</strong> Amazon / Flipkart / Local Ahmedabad – Liberty ya Bhalani book market
+        </div>
+      </div>
+
+      <div class="resource-panel" id="tab-ca">
+        <ul class="resource-list">
+          <li><span class="badge daily">DAILY</span><span><strong>The Hindu</strong> (English) – 45–60 min</span></li>
+          <li><span class="badge daily">DAILY</span><span><strong>Divya Bhaskar / Gujarat Samachar</strong> (Gujarati) – 30 min</span></li>
+          <li><span class="badge free">MONTHLY</span><span><strong>Yojana / Kurukshetra</strong> (Gujarati version – free PDF)</span></li>
+          <li><span class="badge free">MONTHLY</span><span>Gujarat Govt schemes → <strong>gujaratindia.gov.in</strong></span></li>
+          <li><span class="badge free">APP</span><span><strong>"GPSC Current Affairs"</strong> app ya Vision IAS PT365 free monthly PDFs</span></li>
+        </ul>
+      </div>
+
+      <div class="resource-panel" id="tab-lang">
+        <ul class="resource-list">
+          <li><span class="badge buy">BUY</span><span><strong>Wren & Martin</strong> – English Grammar</span></li>
+          <li><span class="badge buy">BUY</span><span><strong>Gujarati Vyakaran</strong> – Navneet ya GCERT</span></li>
+          <li><span class="badge daily">DAILY</span><span>Language practice: <strong>30–45 min daily</strong> (Gujarati + English both)</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Budget Box -->
+  <div class="budget-box">
+    <h3>💰 Budget Breakdown (Total &lt; ₹4000)</h3>
+    <div class="budget-items">
+      <div class="budget-item">📚 Books (Laxmikant, Spectrum, etc.) ~₹2000</div>
+      <div class="budget-item">📝 Test Series (Liberty/Sunya) ~₹2000–3000</div>
+      <div class="budget-item">🆓 NCERT + GCERT + PYQ = FREE</div>
+      <div class="budget-item">📺 YouTube coaching = FREE</div>
+    </div>
+  </div>
+
+  <!-- Monthly Milestones -->
+  <section id="milestones">
+    <h2>🏁 Monthly Milestones</h2>
+    <div style="background:var(--card);border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+      <div class="milestone-timeline">
+        <div class="milestone-item">
+          <h4>Month 1–2 (Apr–May 2026)</h4>
+          <p>All NCERT + GCERT complete. Laxmikant 1st reading. CA notebook started. Daily reading habit locked in.</p>
+        </div>
+        <div class="milestone-item">
+          <h4>Month 3–4 (Jun–Jul 2026)</h4>
+          <p>Spectrum + Gujarat History book complete. 1000 MCQs done. Weak areas identified and extra time allotted.</p>
+        </div>
+        <div class="milestone-item">
+          <h4>Month 5–9 (Aug–Dec 2026)</h4>
+          <p>Full syllabus cover (100%). Ramesh Singh Economy. Environment. 2nd revision of key subjects. Test series started Month 6.</p>
+        </div>
+        <div class="milestone-item">
+          <h4>Month 10 (Jan 2027)</h4>
+          <p>Notes concise – 200 pages max per subject. All short notes ready for quick revision.</p>
+        </div>
+        <div class="milestone-item">
+          <h4>Month 11–12 (Feb–Mar 2027)</h4>
+          <p>20 sectional tests done + full analysis. Mains answer writing start (1 essay/week). Speed and accuracy 80%+.</p>
+        </div>
+        <div class="milestone-item">
+          <h4>Month 13–14 (Apr–May 2027)</h4>
+          <p>50 full Prelims mocks done (Liberty/Vision online series). Only revision, no new topics. GS1 120+, CSAT 100+. 🏆</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tips -->
+  <section id="tips">
+    <h2>💡 Freelancer + Health Tips</h2>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-icon">⏱️</div>
+        <h4>Momentum Rule</h4>
+        <p>Work ke beech 2–3 hrs study block break mat karo – momentum tootega. Ek block complete karo, phir shift karo.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🚶</div>
+        <h4>50-Min Rule</h4>
+        <p>Har 50 min study ke baad 5–10 min walk. Brain rest + blood flow dono improve hoga.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🛑</div>
+        <h4>Weekly Off</h4>
+        <p>Weekly 1 din full off (family/fun) – burnout nahi hoga. Sunday light revision only, no new topic.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">📊</div>
+        <h4>Monthly Self-Review</h4>
+        <p>Score track karo Excel mein. Target GS1 120+. Dekho kya improve hua, kahan time waste hua.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🥗</div>
+        <h4>Diet & Health</h4>
+        <p>Gujarati homemade food + 4 litre paani + 30 min walk daily. Healthy body = sharp mind.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">📖</div>
+        <h4>3x Revision Rule</h4>
+        <p>Har topic 3 baar padho: 1st reading → 2nd notes → 3rd only notes + MCQ. Never skip revision.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🎓</div>
+        <h4>No Coaching Needed</h4>
+        <p>Coaching mat lo abhi. YouTube + books + self-study enough hai first attempt ke liye. Save money.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">✍️</div>
+        <h4>Answer Writing</h4>
+        <p>Month 9 se roz 1–2 Mains questions likhna start karo – even Prelims ke liye helpful hoga.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>GPSC Class 1–2 Prelims Roadmap | March 2026 – May 2027 | Best of luck! 🙏</p>
+</footer>
+
+<script>
+  function fixNavTop() {
+    const headerEl = document.querySelector('header');
+    const navEl = document.querySelector('nav');
+    navEl.style.top = headerEl.offsetHeight + 'px';
+  }
+
+  function scrollTo(id) {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function togglePhase(header) {
+    const body = header.nextElementSibling;
+    const icon = header.querySelector('.toggle-icon');
+    body.classList.toggle('open');
+    icon.style.transform = body.classList.contains('open') ? 'rotate(0deg)' : 'rotate(-90deg)';
+  }
+
+  function showTab(name) {
+    document.querySelectorAll('.rtab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.resource-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  function updateProgress() {
+    const boxes = document.querySelectorAll('#checkList input[type="checkbox"]');
+    let done = 0;
+    boxes.forEach((box, i) => {
+      const item = document.getElementById('ci' + i);
+      if (box.checked) { done++; item.classList.add('done'); }
+      else { item.classList.remove('done'); }
+    });
+    const pct = Math.round((done / boxes.length) * 100);
+    document.getElementById('overallBar').style.width = pct + '%';
+    document.getElementById('overallPct').textContent = pct + '%';
+    document.getElementById('overallLabel').textContent = done + ' of ' + boxes.length + ' milestones completed';
+    // Save to localStorage
+    const state = Array.from(boxes).map(b => b.checked);
+    localStorage.setItem('gpsc_progress', JSON.stringify(state));
+  }
+
+  // Load saved progress
+  window.onload = function() {
+    fixNavTop();
+    window.addEventListener('resize', fixNavTop);
+    const saved = localStorage.getItem('gpsc_progress');
+    if (saved) {
+      JSON.parse(saved).forEach((v, i) => {
+        const box = document.getElementById('c' + i);
+        if (box) { box.checked = v; }
+      });
+      updateProgress();
+    }
+  };
+</script>
+</body>
+</html>
