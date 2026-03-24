@@ -123,6 +123,10 @@
   .rtab.active { background: var(--blue); color: white; border-color: var(--blue); }
   .resource-panel { display: none; }
   .resource-panel.active { display: block; }
+  .tt-panel { display: none; }
+  .tt-panel.active { display: block; }
+  .mm-panel { display: none; }
+  .mm-panel.active { display: block; }
   .resource-list { list-style: none; }
   .resource-list li { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.85rem; display: flex; align-items: flex-start; gap: 10px; }
   .resource-list li:last-child { border: none; }
@@ -350,32 +354,134 @@
 
   <!-- Daily Timetable -->
   <section id="timetable">
-    <h2>⏰ Daily Timetable (8.5 Hours)</h2>
-    <div style="background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
-      <div style="overflow-x:auto;">
-        <table class="timetable">
-          <thead>
-            <tr><th>Time</th><th>Activity</th><th>Duration</th><th>Notes</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><span class="time-badge">5:30 AM</span></td><td>Wake Up + Exercise/Yoga</td><td class="hrs-badge">20 min</td><td>Health compulsory!</td></tr>
-            <tr style="background:#FFF8F5"><td><span class="time-badge">6:00–7:30</span></td><td class="subject-cell">📰 Current Affairs</td><td class="hrs-badge">1.5 hrs</td><td>Newspaper + 1 page notes + Gujarat schemes</td></tr>
-            <tr style="background:#F5F8FF"><td><span class="time-badge">7:30–9:30</span></td><td class="subject-cell">📚 Static Subject 1</td><td class="hrs-badge">2 hrs</td><td>Polity / Gujarat History (weak areas first 4 months)</td></tr>
-            <tr><td><span class="time-badge">9:30–1:00</span></td><td>💻 Freelance Work</td><td>—</td><td>+ Breakfast / Lunch break</td></tr>
-            <tr style="background:#F5FFF8"><td><span class="time-badge">1:00–2:00</span></td><td>😴 Rest / Power Nap</td><td>1 hr</td><td>Important for memory consolidation</td></tr>
-            <tr style="background:#F5F8FF"><td><span class="time-badge">2:00–4:00</span></td><td class="subject-cell">📚 Static Subject 2</td><td class="hrs-badge">2 hrs</td><td>Geography / Economy / Science / Environment</td></tr>
-            <tr style="background:#FFFAF0"><td><span class="time-badge">4:00–5:00</span></td><td class="subject-cell">🔢 CSAT Practice</td><td class="hrs-badge">1 hr</td><td>Quant + Reasoning – target 8/10 (currently 5/10)</td></tr>
-            <tr style="background:#FFF5F8"><td><span class="time-badge">5:00–6:00</span></td><td class="subject-cell">🗣️ Language + Gujarat Culture</td><td class="hrs-badge">1 hr</td><td>Gujarati / English practice + Art/Culture</td></tr>
-            <tr style="background:#F5FFF8"><td><span class="time-badge">6:00–7:00</span></td><td class="subject-cell">✅ MCQ + Revision</td><td class="hrs-badge">1 hr</td><td>50 questions + note wrong answers</td></tr>
-            <tr><td><span class="time-badge">7:00 PM+</span></td><td>🍽️ Dinner + Family Time</td><td>—</td><td>Sleep by 11 PM (7 hrs sleep must)</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div style="padding:14px 20px;background:var(--light);font-size:0.82rem;color:var(--subtext)">
-        📅 <strong>Weekly:</strong> Har hafte subject rotate (Mon: Polity, Tue: Gujarat History...) &nbsp;|&nbsp; 
-        📆 <strong>Sunday:</strong> 3 hrs full subject test + analysis + light revision (no new topic)
+    <h2>⏰ Timetable</h2>
+
+    <!-- Sub-tabs -->
+    <div class="resource-tabs" style="margin-bottom:16px;">
+      <div class="rtab active" onclick="showTTTab('weekday')">📅 Weekday (Mon–Sat)</div>
+      <div class="rtab" onclick="showTTTab('rotation')">🔄 Weekly Rotation</div>
+      <div class="rtab" onclick="showTTTab('sunday')">☀️ Sunday</div>
+    </div>
+
+    <!-- Weekday Tab -->
+    <div class="tt-panel active" id="tt-weekday">
+      <div style="background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+        <div style="background:var(--blue);padding:10px 16px;">
+          <span style="color:white;font-weight:600;font-size:0.9rem;">📅 Weekdays (Monday to Saturday) — ~8.75 Hours</span>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="timetable">
+            <thead>
+              <tr><th>Time</th><th>Activity</th><th>Duration</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><span class="time-badge">5:30 AM</span></td><td>🧘 Wake Up + Exercise / Yoga</td><td class="hrs-badge">20 min</td><td>Health compulsory!</td></tr>
+              <tr style="background:#FFF8F5"><td><span class="time-badge">6:00–7:30</span></td><td class="subject-cell">📰 Current Affairs</td><td class="hrs-badge">1.5 hrs</td><td>The Hindu + Divya Bhaskar/Gujarat Samachar + 1 page notes + Gujarat Govt schemes</td></tr>
+              <tr style="background:#F5F8FF"><td><span class="time-badge">7:30–9:30</span></td><td class="subject-cell">📚 Static Subject 1</td><td class="hrs-badge">2 hrs</td><td>Polity / Gujarat History / Indian History (weak areas pehle 4 months)</td></tr>
+              <tr><td><span class="time-badge">9:30–1:00</span></td><td>💻 Freelance Work + Meals</td><td>—</td><td>Breakfast + Lunch break included</td></tr>
+              <tr style="background:#F5FFF8"><td><span class="time-badge">1:00–2:00</span></td><td>😴 Rest / Power Nap</td><td class="hrs-badge">1 hr</td><td>Important for memory consolidation</td></tr>
+              <tr style="background:#F5F8FF"><td><span class="time-badge">2:00–4:00</span></td><td class="subject-cell">📚 Static Subject 2</td><td class="hrs-badge">2 hrs</td><td>Gujarat Geo/Economy / Indian Economy / Science & Environment</td></tr>
+              <tr style="background:#FFFAF0"><td><span class="time-badge">4:00–5:00</span></td><td class="subject-cell">🔢 CSAT Practice</td><td class="hrs-badge">1 hr</td><td>Quant + Reasoning – roz practice, target 8/10</td></tr>
+              <tr style="background:#FFF5F8"><td><span class="time-badge">5:00–5:45</span></td><td class="subject-cell">🗣️ Gujarat Culture + Language</td><td class="hrs-badge">45 min</td><td>Gujarati Vyakaran / English + Art & Heritage</td></tr>
+              <tr style="background:#F5FFF8"><td><span class="time-badge">5:45–6:45</span></td><td class="subject-cell">✅ MCQ Practice + Revision</td><td class="hrs-badge">1 hr</td><td>50–60 questions from today's + previous topics; wrong ones note karo</td></tr>
+              <tr><td><span class="time-badge">6:45 PM+</span></td><td>🍽️ Dinner + Family Time</td><td>—</td><td>Light revision if energy ho · Sleep by 11 PM (7 hrs must)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="padding:12px 16px;background:var(--light);font-size:0.82rem;color:var(--subtext);">
+          💡 Freelance overload days: CSAT slot ko 45 min kar sakte ho &nbsp;|&nbsp; 📊 Har Sunday evening next week ka schedule confirm karo (Excel mein)
+        </div>
       </div>
     </div>
+
+    <!-- Weekly Rotation Tab -->
+    <div class="tt-panel" id="tt-rotation">
+      <div style="background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+        <div style="background:var(--blue);padding:10px 16px;">
+          <span style="color:white;font-weight:600;font-size:0.9rem;">🔄 Weekly Subject Rotation — All 8 Subjects Balanced</span>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="timetable">
+            <thead>
+              <tr>
+                <th>Day</th>
+                <th>Static Subject 1 (7:30–9:30)</th>
+                <th>Static Subject 2 (2:00–4:00)</th>
+                <th>Culture/Language (5:00–5:45)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background:#FFF5F0">
+                <td><strong style="color:var(--orange)">Monday</strong></td>
+                <td class="subject-cell">🏛️ Indian Polity & Constitution</td>
+                <td class="subject-cell">🗺️ Gujarat Geography & Economy</td>
+                <td>Gujarat Culture + Gujarati</td>
+              </tr>
+              <tr style="background:#F5F8FF">
+                <td><strong style="color:var(--blue)">Tuesday</strong></td>
+                <td class="subject-cell">🏰 Gujarat History & Culture</td>
+                <td class="subject-cell">💰 Indian Economy & Planning</td>
+                <td>Art & Heritage + English</td>
+              </tr>
+              <tr style="background:#F5FFF8">
+                <td><strong style="color:var(--green)">Wednesday</strong></td>
+                <td class="subject-cell">📜 Indian History (Ancient + Modern)</td>
+                <td class="subject-cell">🔬 Science & Technology + Environment</td>
+                <td>Gujarat Culture + Gujarati</td>
+              </tr>
+              <tr style="background:#FFF5F0">
+                <td><strong style="color:var(--orange)">Thursday</strong></td>
+                <td class="subject-cell">🏛️ Indian Polity & Constitution</td>
+                <td class="subject-cell">🗺️ Gujarat Geography & Economy</td>
+                <td>Art & Heritage + English</td>
+              </tr>
+              <tr style="background:#F5F8FF">
+                <td><strong style="color:var(--blue)">Friday</strong></td>
+                <td class="subject-cell">🏰 Gujarat History & Culture</td>
+                <td class="subject-cell">💰 Indian Economy & Planning</td>
+                <td>Gujarat Culture + Gujarati</td>
+              </tr>
+              <tr style="background:#F5FFF8">
+                <td><strong style="color:var(--green)">Saturday</strong></td>
+                <td class="subject-cell">📜 Indian History (Ancient + Modern)</td>
+                <td class="subject-cell">🔬 Science & Technology + Environment</td>
+                <td>Art & Heritage + English</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="padding:14px 16px;background:var(--light);font-size:0.82rem;color:var(--subtext);">
+          <strong style="color:var(--text);">Monthly coverage guarantee:</strong> Polity 8–10 sessions · Gujarat History 8–10 · Geo/Economy 8 · Indian History 8 · Economy 8 · Sci/Env 8 · CSAT daily (48+ hrs) · Culture/Language 12+ sessions · Current Affairs daily (45+ hrs)
+        </div>
+      </div>
+    </div>
+
+    <!-- Sunday Tab -->
+    <div class="tt-panel" id="tt-sunday">
+      <div style="background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+        <div style="background:var(--green);padding:10px 16px;">
+          <span style="color:white;font-weight:600;font-size:0.9rem;">☀️ Sunday — Light Revision + Full Subject Test Day (~4–5 hrs)</span>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="timetable">
+            <thead>
+              <tr><th>Time</th><th>Activity</th><th>Duration</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><span class="time-badge" style="background:var(--green);">5:30 AM</span></td><td>🧘 Wake Up + Exercise / Yoga</td><td class="hrs-badge">20–30 min</td><td>Light stretch / walk</td></tr>
+              <tr style="background:#FFF8F5"><td><span class="time-badge" style="background:var(--green);">6:00–7:30</span></td><td class="subject-cell">📰 Current Affairs – Weekly Roundup</td><td class="hrs-badge">1.5 hrs</td><td>Previous week notes revise + weekly CA summary</td></tr>
+              <tr style="background:#F5FFF8"><td><span class="time-badge" style="background:var(--green);">8:00–11:00</span></td><td class="subject-cell">📝 Full Subject Test + Analysis</td><td class="hrs-badge">3 hrs</td><td>1 full subject test (e.g. Polity 100 Qs / Gujarat History 80–100 MCQs) + 1–1.5 hrs deep analysis: wrong reasons, weak sub-topics, 20–30 extra MCQs</td></tr>
+              <tr style="background:#F5F8FF"><td><span class="time-badge" style="background:var(--green);">11:30–12:30</span></td><td class="subject-cell">🗒️ Light Revision</td><td class="hrs-badge">1 hr</td><td>Notes + formula + maps + important facts of tested subject only</td></tr>
+              <tr><td><span class="time-badge" style="background:var(--green);">Afternoon+</span></td><td>🛌 Complete Rest + Family + Hobby</td><td>—</td><td>No heavy study · Evening: optional 30–45 min weak area MCQs or language revision</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="padding:12px 16px;background:var(--light);font-size:0.82rem;color:var(--subtext);">
+          🚫 <strong>No new topic on Sunday</strong> &nbsp;|&nbsp; Sources: Previous GPSC papers + EduRev / TCYonline / Liberty / YouTube sectional tests
+        </div>
+      </div>
+    </div>
+
   </section>
 
   <!-- Resources -->
@@ -528,9 +634,181 @@
     </div>
   </section>
 
-</div>
+  <!-- Mock & Mains -->
+  <section id="mockmains">
+    <h2>🎯 Mock Tests & Mains Writing</h2>
 
-<footer>
+    <!-- Sub-tabs -->
+    <div class="resource-tabs" style="margin-bottom:16px;">
+      <div class="rtab active" onclick="showMMTab('prelims')">📝 Prelims Mock Tests</div>
+      <div class="rtab" onclick="showMMTab('mains')">✍️ Mains Answer Writing</div>
+    </div>
+
+    <!-- Prelims Mock Tab -->
+    <div class="mm-panel active" id="mm-prelims">
+
+      <!-- When to start -->
+      <div style="background:var(--card);border-radius:12px;padding:18px;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+        <h3 style="font-size:0.95rem;color:var(--blue);margin-bottom:12px;">📅 Kab Shuru Karna Hai?</h3>
+        <div class="info-grid">
+          <div class="info-box" style="border-left:3px solid var(--orange);">
+            <h4>Month 1–3 (Foundation)</h4>
+            <ul><li>Sirf topic-wise / sectional tests</li><li>Weekly 2–3 tests only</li></ul>
+          </div>
+          <div class="info-box" style="border-left:3px solid var(--blue);">
+            <h4>Month 4–9 (Core)</h4>
+            <ul><li>Subject-wise + full-length mocks</li><li>Weekly 1 full + 2–3 sectional</li></ul>
+          </div>
+          <div class="info-box" style="border-left:3px solid var(--red);">
+            <h4>Month 10–14 (Peak)</h4>
+            <ul><li>Har hafte 2 full-length mocks</li><li>Daily CSAT practice</li><li>Last 2 months: roz 1 full mock</li></ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step by step process -->
+      <div style="background:var(--card);border-radius:12px;padding:18px;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+        <h3 style="font-size:0.95rem;color:var(--blue);margin-bottom:12px;">🔄 Step-by-Step Process (Home Setup, No Coaching)</h3>
+        <div class="tips-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));">
+          <div class="tip-card" style="border-top-color:var(--orange);">
+            <div class="tip-icon">1️⃣</div>
+            <h4>Test Dena</h4>
+            <p>2.5 hours exact · Morning 10 AM slot fix karo · Phone silent, no notes · OMR sheet print karo (free templates online)</p>
+          </div>
+          <div class="tip-card" style="border-top-color:var(--blue);">
+            <div class="tip-icon">2️⃣</div>
+            <h4>Immediate Scoring</h4>
+            <p>Official answer key se score calculate karo · Negative marking yaad rakho: 1/3rd deduction per wrong</p>
+          </div>
+          <div class="tip-card" style="border-top-color:var(--red);">
+            <div class="tip-icon">3️⃣</div>
+            <h4>Deep Analysis (2–3 hrs)</h4>
+            <p>Har galat sawal ka reason notebook mein: Concept weak? Misread? Guess? CA miss? Correct answers bhi review karo.</p>
+          </div>
+          <div class="tip-card" style="border-top-color:var(--green);">
+            <div class="tip-icon">4️⃣</div>
+            <h4>Revision Loop</h4>
+            <p>Galat sawalon ke notes revise karo · Same topic ke 20–30 extra MCQs solve karo (PYQ + free apps)</p>
+          </div>
+        </div>
+        <div style="background:var(--light);border-radius:8px;padding:12px;margin-top:12px;font-size:0.83rem;">
+          🎯 <strong>Accuracy Targets:</strong> GS-1 mein <strong style="color:var(--orange);">70%+ accuracy</strong> · CSAT mein <strong style="color:var(--green);">80%+ accuracy</strong> · Har test ke baad Excel mein score + weak areas track karo
+        </div>
+      </div>
+
+      <!-- Resources -->
+      <div style="background:var(--card);border-radius:12px;padding:18px;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+        <h3 style="font-size:0.95rem;color:var(--blue);margin-bottom:12px;">📚 Best Resources for Mock Tests</h3>
+        <div class="info-grid">
+          <div class="info-box">
+            <h4>🆓 Free Options</h4>
+            <ul>
+              <li>GPSC official site – previous 10 years papers + keys</li>
+              <li>EduRev, TCYonline, Toppersexam – free GPSC mocks</li>
+              <li>YouTube: Shruti Panchal (Rank-9) test discussions</li>
+              <li>Sunya GPSC, Dr Amit Academy, Manish Sindhi playlists</li>
+            </ul>
+          </div>
+          <div class="info-box">
+            <h4>💰 Affordable Series (₹1500–4000, Month 5–6 se)</h4>
+            <ul>
+              <li>Liberty Career Academy (GPSC specific, Gujarati/English)</li>
+              <li>Bubna's IAS Prelims Test Series</li>
+              <li>Chahal Academy / Plutus IAS / PD Gurukul</li>
+              <li>EduRev GPSC Mock Test Series (unlimited practice)</li>
+            </ul>
+          </div>
+        </div>
+        <div style="background:#FFF0E8;border-radius:8px;padding:12px;margin-top:10px;font-size:0.83rem;">
+          🔢 <strong>CSAT Special:</strong> RS Aggarwal se daily 30–50 questions + previous GPSC CSAT papers · Apps: Testbook ya free YouTube sectional tests
+        </div>
+      </div>
+
+      <!-- Target Scores -->
+      <div style="background:linear-gradient(135deg,var(--blue),#2C5F8A);border-radius:12px;padding:18px;color:white;">
+        <h3 style="font-size:0.95rem;margin-bottom:12px;">🏆 Target Scores (Prelims)</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;">
+          <div style="background:rgba(255,255,255,0.12);border-radius:8px;padding:12px 18px;text-align:center;">
+            <div style="font-size:1.5rem;font-weight:bold;color:#FFD700;">110–130+</div>
+            <div style="font-size:0.8rem;opacity:0.85;">GS-1 (out of 200)</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.12);border-radius:8px;padding:12px 18px;text-align:center;">
+            <div style="font-size:1.5rem;font-weight:bold;color:#7DFFB3;">100+</div>
+            <div style="font-size:0.8rem;opacity:0.85;">CSAT (qualifying: 66+)</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.12);border-radius:8px;padding:12px 18px;text-align:center;">
+            <div style="font-size:1.5rem;font-weight:bold;color:#FFB347;">80+</div>
+            <div style="font-size:0.8rem;opacity:0.85;">Mock score by Month 6</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mains Answer Writing Tab -->
+    <div class="mm-panel" id="mm-mains">
+
+      <!-- When to start -->
+      <div style="background:var(--card);border-radius:12px;padding:18px;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+        <h3 style="font-size:0.95rem;color:var(--blue);margin-bottom:10px;">📅 Kab Shuru Karna?</h3>
+        <p style="font-size:0.85rem;line-height:1.6;">Month 8–9 se roz (Prelims ke saath parallel chalega). Pehle sirf <strong>1–2 answers/day</strong>, phir Month 11 se full Mains mock papers tak badhao.</p>
+      </div>
+
+      <!-- Step by step -->
+      <div style="background:var(--card);border-radius:12px;padding:18px;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+        <h3 style="font-size:0.95rem;color:var(--blue);margin-bottom:12px;">📋 Self-Practice Method (Step-by-Step)</h3>
+        <div class="tips-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));">
+          <div class="tip-card" style="border-top-color:var(--orange);">
+            <div class="tip-icon">✍️</div>
+            <h4>Daily Routine (30–60 min)</h4>
+            <p>Syllabus se 2–3 questions choose karo (PYQ Mains papers) · 7–15 min/question · A4 sheet pe likho · Word limit: 150–250 words</p>
+          </div>
+          <div class="tip-card" style="border-top-color:var(--blue);">
+            <div class="tip-icon">🏗️</div>
+            <h4>Answer Structure</h4>
+            <p>Intro (2–3 lines) → Body (Facts + Data + Gujarat angle + Examples) → Multi-dimensional → Conclusion (way-forward)</p>
+          </div>
+          <div class="tip-card" style="border-top-color:var(--green);">
+            <div class="tip-icon">🔍</div>
+            <h4>Self-Evaluation</h4>
+            <p>Content: Points miss? · Structure: Clear headings? · Language: Simple, no errors · Keywords: Directive words used correctly?</p>
+          </div>
+          <div class="tip-card" style="border-top-color:var(--purple);">
+            <div class="tip-icon">📊</div>
+            <h4>Weekly / Monthly</h4>
+            <p>1 full essay (1200–1500 words) weekly · Sunday: 4–5 answers + peer review (Reddit/GPSC forums) · Month 11: Full Mains mocks</p>
+          </div>
+        </div>
+        <div style="background:var(--light);border-radius:8px;padding:12px;margin-top:12px;font-size:0.83rem;">
+          🗂️ <strong>Error Log banao:</strong> "Introduction weak" · "No Gujarat example" · "Over word limit" · Har rewrite mein purana answer improve karo
+        </div>
+      </div>
+
+      <!-- Resources -->
+      <div style="background:var(--card);border-radius:12px;padding:18px;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+        <h3 style="font-size:0.95rem;color:var(--blue);margin-bottom:12px;">📚 Resources for Mains Practice</h3>
+        <ul class="resource-list">
+          <li><span class="badge free">FREE</span><span>Previous GPSC Mains question papers → official GPSC site</span></li>
+          <li><span class="badge free">FREE</span><span>YouTube: Shruti Panchal / Study Teller TheHardik – "GPSC Mains Answer Writing" playlists</span></li>
+          <li><span class="badge free">FREE</span><span>Drishti IAS daily answer writing (UPSC questions – 70% overlap with GPSC) – adapt karke use karo</span></li>
+          <li><span class="badge buy">KEY TIP</span><span>Gujarat-specific examples add karna mat bhoolo: Gujarat Economic Survey, schemes, success stories, Gujarat stat data</span></li>
+          <li><span class="badge daily">HABIT</span><span>Handwriting clear + neat presentation + 3 readings before submission: content → structure → language</span></li>
+        </ul>
+      </div>
+
+      <!-- Aaj hi shuru karo -->
+      <div style="background:linear-gradient(135deg,#27AE60,#1E8449);border-radius:12px;padding:18px;color:white;">
+        <h3 style="font-size:0.95rem;margin-bottom:10px;">🚀 Aaj Hi Shuru Karo!</h3>
+        <div style="display:flex;flex-direction:column;gap:8px;font-size:0.85rem;">
+          <div style="display:flex;align-items:flex-start;gap:8px;"><span>✅</span><span>5–10 previous year GPSC Prelims papers solve kar lo aaj hi</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;"><span>✅</span><span>Ek Mains question likhkar self-evaluate karo (apne notes se compare)</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;"><span>✅</span><span>Consistency: Har hafte 1 full Prelims mock + 5–7 Mains answers minimum</span></div>
+          <div style="display:flex;align-items:flex-start;gap:8px;"><span>✅</span><span>Roz analysis skip mat karna – yeh sabse bada game-changer hai</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
   <p>GPSC Class 1–2 Prelims Roadmap | March 2026 – May 2027 | Best of luck! 🙏</p>
 </footer>
 
@@ -551,6 +829,22 @@
     const icon = header.querySelector('.toggle-icon');
     body.classList.toggle('open');
     icon.style.transform = body.classList.contains('open') ? 'rotate(0deg)' : 'rotate(-90deg)';
+  }
+
+  function showTTTab(name) {
+    const tabs = event.target.closest('.resource-tabs').querySelectorAll('.rtab');
+    tabs.forEach(t => t.classList.remove('active'));
+    event.target.classList.add('active');
+    document.querySelectorAll('.tt-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('tt-' + name).classList.add('active');
+  }
+
+  function showMMTab(name) {
+    const tabs = event.target.closest('.resource-tabs').querySelectorAll('.rtab');
+    tabs.forEach(t => t.classList.remove('active'));
+    event.target.classList.add('active');
+    document.querySelectorAll('.mm-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('mm-' + name).classList.add('active');
   }
 
   function showTab(name) {
