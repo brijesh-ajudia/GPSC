@@ -848,10 +848,10 @@
   }
 
   function showTab(name) {
-    document.querySelectorAll('.rtab').forEach(t => t.classList.remove('active'));
+    event.target.closest('.resource-tabs').querySelectorAll('.rtab').forEach(t => t.classList.remove('active'));
+    event.target.classList.add('active');
     document.querySelectorAll('.resource-panel').forEach(p => p.classList.remove('active'));
     document.getElementById('tab-' + name).classList.add('active');
-    event.target.classList.add('active');
   }
 
   function updateProgress() {
