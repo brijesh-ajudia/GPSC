@@ -370,6 +370,7 @@
       <div class="rtab active" onclick="showTTTab('monfri')">📅 Mon–Fri</div>
       <div class="rtab" onclick="showTTTab('saturday')">🗓️ Saturday</div>
       <div class="rtab" onclick="showTTTab('sunday')">☀️ Sunday</div>
+      <div class="rtab" onclick="showTTTab('rotation')">🔄 Weekly Rotation</div>
     </div>
 
     <!-- ── MON–FRI TAB ── -->
@@ -510,9 +511,9 @@
                 <td>The Hindu + Divya Bhaskar/Gujarat Samachar · Gujarat schemes · Previous week notes quick revise · ½–1 page notes</td>
               </tr>
               <tr style="background:#F5F8FF;">
-                <td><span class="time-badge" style="background:#1565C0;">7:40–8:10</span></td>
+                <td><span class="time-badge" style="background:#1565C0;">7:40–8:40</span></td>
                 <td class="subject-cell">📚 Static / CSAT Pre-Reading</td>
-                <td class="hrs-badge">30 min</td>
+                <td class="hrs-badge">1 hrs</td>
                 <td>Weak area quick revision OR quick CSAT practice</td>
               </tr>
               <!-- MIDDAY -->
@@ -520,13 +521,13 @@
                 <td colspan="4" style="padding:6px 10px;font-size:0.78rem;font-weight:700;color:var(--text);letter-spacing:0.5px;">☀️ MIDDAY BLOCK — Relaxed</td>
               </tr>
               <tr>
-                <td><span class="time-badge" style="background:#1565C0;">8:10–10:10</span></td>
+                <td><span class="time-badge" style="background:#1565C0;">8:40–10:10</span></td>
                 <td>💻 Freelancing Work</td>
-                <td class="hrs-badge">2 hrs</td>
+                <td class="hrs-badge">1.5 hrs</td>
                 <td>Focused freelance work block</td>
               </tr>
               <tr style="background:#F5FFF8;">
-                <td><span class="time-badge" style="background:#1565C0;">10:10–2:30</span></td>
+                <td><span class="time-badge" style="background:#1565C0;">10:10–2:45</span></td>
                 <td>🍱 Breakfast + Rest / Nap + Lunch + Personal Work + Travel</td>
                 <td>—</td>
                 <td>Full relaxed block · Personal errands · Travel preparation to coaching</td>
@@ -579,7 +580,7 @@
           </table>
         </div>
         <div style="padding:12px 16px;background:var(--light);font-size:0.82rem;color:var(--subtext);">
-          📌 Saturday has a longer relaxed midday block (10:10 AM – 2:30 PM) — use it fully for rest before afternoon coaching
+          📌 Saturday has a longer, more relaxed midday block (10:10 AM – 2:30 PM) — use it fully for rest before afternoon coaching
         </div>
       </div>
     </div>
@@ -665,6 +666,73 @@
         </div>
         <div style="padding:12px 16px;background:var(--light);font-size:0.82rem;color:var(--subtext);">
           🚫 <strong>No new topic on Sunday</strong> &nbsp;|&nbsp; 🔍 Test analysis is the most important part — 2–3 hrs minimum &nbsp;|&nbsp; Sources: Coaching test series + Previous GPSC papers + EduRev / TCYonline
+        </div>
+      </div>
+    </div>
+
+    <!-- ── WEEKLY ROTATION TAB ── -->
+    <div class="tt-panel" id="tt-rotation">
+      <div style="background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+        <div style="background:var(--blue);padding:10px 16px;">
+          <span style="color:white;font-weight:600;font-size:0.9rem;">🔄 Weekly Subject Rotation — All 8 Subjects Balanced</span>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="timetable">
+            <thead>
+              <tr>
+                <th>Day</th>
+                <th>Static Subject 1 (7:30–9:00 AM)</th>
+                <th>Evening: Lecture Revision Focus</th>
+                <th>Culture/Language (MCQ slot)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background:#FFF5F0">
+                <td><strong style="color:var(--orange)">Monday</strong></td>
+                <td class="subject-cell">🏛️ Indian Polity & Constitution</td>
+                <td class="subject-cell">🗺️ Gujarat Geography & Economy</td>
+                <td>Gujarat Culture + Gujarati</td>
+              </tr>
+              <tr style="background:#F5F8FF">
+                <td><strong style="color:var(--blue)">Tuesday</strong></td>
+                <td class="subject-cell">🏰 Gujarat History & Culture</td>
+                <td class="subject-cell">💰 Indian Economy & Planning</td>
+                <td>Art & Heritage + English</td>
+              </tr>
+              <tr style="background:#F5FFF8">
+                <td><strong style="color:var(--green)">Wednesday</strong></td>
+                <td class="subject-cell">📜 Indian History (Ancient + Modern)</td>
+                <td class="subject-cell">🔬 Science & Technology + Environment</td>
+                <td>Gujarat Culture + Gujarati</td>
+              </tr>
+              <tr style="background:#FFF5F0">
+                <td><strong style="color:var(--orange)">Thursday</strong></td>
+                <td class="subject-cell">🏛️ Indian Polity & Constitution</td>
+                <td class="subject-cell">🗺️ Gujarat Geography & Economy</td>
+                <td>Art & Heritage + English</td>
+              </tr>
+              <tr style="background:#F5F8FF">
+                <td><strong style="color:var(--blue)">Friday</strong></td>
+                <td class="subject-cell">🏰 Gujarat History & Culture</td>
+                <td class="subject-cell">💰 Indian Economy & Planning</td>
+                <td>Gujarat Culture + Gujarati</td>
+              </tr>
+              <tr style="background:#F5FFF8">
+                <td><strong style="color:var(--green)">Saturday</strong></td>
+                <td class="subject-cell">📜 Indian History (Ancient + Modern)</td>
+                <td class="subject-cell">🔬 Science & Technology + Environment</td>
+                <td>Art & Heritage + English</td>
+              </tr>
+              <tr style="background:#FFF9C4">
+                <td><strong style="color:var(--yellow)">Sunday</strong></td>
+                <td colspan="2" style="text-align:center;font-weight:500;">📝 Full Subject Test + Analysis (coaching test series / GPSC PYQ)</td>
+                <td>Light MCQ + CSAT</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="padding:14px 16px;background:var(--light);font-size:0.82rem;color:var(--subtext);">
+          <strong style="color:var(--text);">Monthly coverage guarantee:</strong> Polity 8–10 sessions · Gujarat History 8–10 · Geo/Economy 8 · Indian History 8 · Economy 8 · Sci/Env 8 · CSAT daily · Culture/Language 12+ sessions · Current Affairs daily
         </div>
       </div>
     </div>
