@@ -377,14 +377,41 @@
     <div class="tt-panel active" id="tt-monfri">
       <div style="background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
         <div style="background:var(--blue);padding:10px 16px;">
-          <span style="color:white;font-weight:600;font-size:0.9rem;">📅 Monday – Friday (Coaching Days) — ~9.75 hrs GPSC Study</span>
+          <span style="color:white;font-weight:600;font-size:0.9rem;">📅 Monday – Friday — ~9.75 hrs GPSC Study</span>
         </div>
+
+        <!-- Day-wise lecture timing notice -->
+        <div style="padding:12px 16px;background:#EBF2FA;border-bottom:1px solid var(--border);">
+          <div style="font-weight:700;font-size:0.85rem;color:var(--blue);margin-bottom:8px;">🏫 Lecture Timings (Day-wise)</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;font-size:0.82rem;">
+            <div style="background:white;border-radius:8px;padding:6px 12px;border-left:3px solid var(--orange);">
+              <strong>Monday</strong> – Art &amp; Culture<br><span style="color:var(--subtext);">2:30 – 5:30 PM</span>
+            </div>
+            <div style="background:white;border-radius:8px;padding:6px 12px;border-left:3px solid var(--green);">
+              <strong>Tuesday</strong> – Environment<br><span style="color:var(--subtext);">2:30 – 5:30 PM</span>
+            </div>
+            <div style="background:white;border-radius:8px;padding:6px 12px;border-left:3px solid var(--red);">
+              <strong>Wednesday</strong> – Science &amp; Tech<br><span style="color:var(--subtext);">1:00 – 3:00 PM ⚡ Early!</span>
+            </div>
+            <div style="background:white;border-radius:8px;padding:6px 12px;border-left:3px solid var(--blue);">
+              <strong>Thursday</strong> – Current Affairs<br><span style="color:var(--subtext);">2:30 – 5:30 PM</span>
+            </div>
+            <div style="background:white;border-radius:8px;padding:6px 12px;border-left:3px solid var(--red);">
+              <strong>Friday</strong> – Science &amp; Tech<br><span style="color:var(--subtext);">1:00 – 3:00 PM ⚡ Early!</span>
+            </div>
+          </div>
+          <div style="margin-top:8px;font-size:0.79rem;color:var(--subtext);">
+            ⚡ <strong style="color:var(--red);">Wed &amp; Fri:</strong> Lecture 1:00–3:00 PM — 11:30 AM se pehle nikal jaana · Lunch/nap time less milega · Extra freelance/office time shaam ko milega
+          </div>
+        </div>
+
         <div style="overflow-x:auto;">
           <table class="timetable">
             <thead>
-              <tr><th style="width:120px;">Time</th><th>Activity</th><th style="width:80px;">Duration</th><th>Details / Notes</th></tr>
+              <tr><th style="width:130px;">Time</th><th>Activity</th><th style="width:80px;">Duration</th><th>Details / Notes</th></tr>
             </thead>
             <tbody>
+              <!-- MORNING -->
               <tr style="background:#EBF2FA;">
                 <td colspan="4" style="padding:6px 10px;font-size:0.78rem;font-weight:700;color:var(--blue);letter-spacing:0.5px;">🌅 MORNING BLOCK — ~3 hrs Study</td>
               </tr>
@@ -398,29 +425,19 @@
                 <td><span class="time-badge">6:30–7:15</span></td>
                 <td>🧘 Freshen Up + Breakfast</td>
                 <td class="hrs-badge">45 min</td>
-                <td>35 min shower + brush + ready · 10 min breakfast</td>
+                <td>20 min toilet · 15 min shower/brush + ready · 10 min breakfast</td>
               </tr>
               <tr style="background:#FFF8F5;">
                 <td><span class="time-badge">7:15–8:45</span></td>
                 <td class="subject-cell">📰 Current Affairs + Quick Revision</td>
                 <td class="hrs-badge">1.5 hrs</td>
-                <td>
-                · The Indian Express (30–40 min) + Divya Bhaskar / Gujarat Samachar (20–25 min) <br>
-                · Gujarat schemes <br>
-                · Previous day coaching notes (quick glance) <br>
-                · ½–1 page notes (important points only)
-                </td>
+                <td>The Hindu (30–40 min) + Divya Bhaskar/Gujarat Samachar (20–25 min) · Gujarat schemes + previous day notes · ½–1 page notes</td>
               </tr>
               <tr style="background:#F5F8FF;">
                 <td><span class="time-badge">9:00–10:30</span></td>
                 <td class="subject-cell">📚 Static Subject (Weak Areas)</td>
                 <td class="hrs-badge">1.5 hrs</td>
-                <td>Polity · Gujarat History · Gujarat Geo &amp; Economy pe focus <br>
-                   · Pehle 4 months: yeh priority hai
-                </td>
-              </tr>
-              <tr style="background:#F0F4F8;">
-                <td colspan="4" style="padding:6px 10px;font-size:0.78rem;font-weight:700;color:var(--text);letter-spacing:0.5px;">☀️ MIDDAY BLOCK — Work + Rest + Coaching</td>
+                <td>Polity / Gujarat History / Gujarat Geo &amp; Economy · Lecture ke hisaab se related topic padho · Pehle 4 months: yeh priority</td>
               </tr>
               <tr>
                 <td><span class="time-badge">10:30–11:30</span></td>
@@ -428,56 +445,96 @@
                 <td class="hrs-badge">1 hr</td>
                 <td>Focused freelance block</td>
               </tr>
-              <tr style="background:#F5FFF8;">
-                <td><span class="time-badge">11:30–2:30</span></td>
-                <td>🍱 Lunch + Rest / Power Nap + Travel to Coaching</td>
-                <td>—</td>
-                <td>Lunch · Power nap · 2:15 PM tak uth jaana · Travel ready rehna</td>
+              <!-- MIDDAY — grouped by day type -->
+              <tr style="background:#EBF2FA;">
+                <td colspan="4" style="padding:6px 10px;font-size:0.78rem;font-weight:700;color:var(--purple);letter-spacing:0.5px;">🟠 MON / TUE / THU — Midday + Coaching</td>
               </tr>
               <tr style="background:#F3E5F5;">
-                <td colspan="4" style="padding:6px 10px;font-size:0.78rem;font-weight:700;color:var(--purple);letter-spacing:0.5px;">🏫 COACHING BLOCK — 3 hrs</td>
+                <td><span class="time-badge" style="background:var(--purple);">11:30–2:30</span></td>
+                <td>🍱 Lunch + Rest / Power Nap + Travel</td>
+                <td>3 hrs</td>
+                <td>Lunch · Power nap · 2:15 PM tak ready rehna · Travel to coaching</td>
               </tr>
               <tr style="background:#FAF5FF;">
                 <td><span class="time-badge" style="background:var(--purple);">2:30–5:30</span></td>
-                <td class="subject-cell">🏫 Coaching Lecture</td>
+                <td class="subject-cell">🏫 Coaching Lecture (3 hrs)</td>
                 <td class="hrs-badge">3 hrs</td>
-                <td>Full attention · Take notes · Mark doubts for next day faculty</td>
+                <td>Full attention · Notes + doubts marked · Mon: Art &amp; Culture · Tue: Environment · Thu: Current Affairs</td>
               </tr>
-              <tr>
+              <tr style="background:#F3E5F5;">
                 <td><span class="time-badge" style="background:var(--purple);">5:30–6:00</span></td>
                 <td>🏠 Reach Home/Office + Freshen Up</td>
                 <td>30 min</td>
-                <td>15 min buffer + reach office if needed</td>
+                <td>Travel buffer · Office agar jaana ho</td>
               </tr>
+
+              <!-- Wed/Fri separator -->
+              <tr style="background:#FDECEA;">
+                <td colspan="4" style="padding:6px 10px;font-size:0.78rem;font-weight:700;color:var(--red);letter-spacing:0.5px;">🔴 WED / FRI — Midday + Coaching + Extra Self-Study Block ⚡</td>
+              </tr>
+              <tr style="background:#FFF5F5;">
+                <td><span class="time-badge" style="background:var(--red);">11:30–1:00</span></td>
+                <td>🍱 Lunch + Short Nap + Early Travel</td>
+                <td>1.5 hrs</td>
+                <td>⚡ Early departure — jaldi kha lo + travel · Science &amp; Tech lecture 1:00 PM sharp</td>
+              </tr>
+              <tr style="background:#FFF0F0;">
+                <td><span class="time-badge" style="background:var(--red);">1:00–3:00</span></td>
+                <td class="subject-cell">🏫 Coaching Lecture – Science &amp; Tech</td>
+                <td class="hrs-badge">2 hrs</td>
+                <td>Full attention · Mechanical background helpful — technical points strong karo</td>
+              </tr>
+              <tr style="background:#FFF5F5;">
+                <td><span class="time-badge" style="background:var(--red);">3:00–3:30</span></td>
+                <td>🏢 Already at Office — Light Settling</td>
+                <td>30 min</td>
+                <td>Office work / light settling · No heavy study — just settle in</td>
+              </tr>
+              <tr style="background:#FFF0F0;">
+                <td><span class="time-badge" style="background:var(--red);">3:30–4:30</span></td>
+                <td class="subject-cell">📝 Lecture Revision + Notes Making</td>
+                <td class="hrs-badge">1 hr</td>
+                <td>Aaj ka Sci &amp; Tech lecture revise · Concise notes banao · Gujarat angle add karo (Gujarat Science Policy, GNLU/Gujarat startups, ISRO Gujarat contributions, state schemes)</td>
+              </tr>
+              <tr style="background:#FFF5F5;">
+                <td><span class="time-badge" style="background:var(--red);">4:30–5:30</span></td>
+                <td class="subject-cell">📚 Static / MCQ / Weak Area</td>
+                <td class="hrs-badge">1 hr</td>
+                <td>Polity / Gujarat History / Gujarat Geo &amp; Economy weak topic · Ya Sci &amp; Tech MCQs (40–50 questions) · Lecture ke important points MCQ form mein practice karo</td>
+              </tr>
+              <tr style="background:#FFE8E8;">
+                <td><span class="time-badge" style="background:var(--red);">5:30–6:00</span></td>
+                <td>🏠 Office Wrap-up + Travel Home</td>
+                <td>30 min</td>
+                <td>Office work wrap-up · Travel home</td>
+              </tr>
+              <!-- EVENING -->
               <tr style="background:#FFF3E0;">
                 <td colspan="4" style="padding:6px 10px;font-size:0.78rem;font-weight:700;color:var(--orange);letter-spacing:0.5px;">🌙 EVENING BLOCK — ~3.75 hrs Study</td>
               </tr>
               <tr style="background:#FFF8F5;">
                 <td><span class="time-badge">6:00–7:45</span></td>
-                <td class="subject-cell">📝 Lecture Revision + Notes Making</td>
+                <td class="subject-cell">📝 Second Revision / Remaining Work</td>
                 <td class="hrs-badge">1 hr 45 min</td>
-                <td>Today's lecture revise + gaps fill + concise notes banao <br>
-                  · Gujarat-specific angle add karo (schemes, examples, data) <br>
-                  · Doubts list banao (next day faculty se)
-                </td>
+                <td>Mon/Tue/Thu: Today's lecture revise + gaps fill + concise notes · Gujarat angle add karo · Doubts list banao · Wed/Fri: Agar 3:30–4:30 PM block mein revision complete nahi hua toh complete karo + doubts finalise + extra MCQs ya weak static topic</td>
               </tr>
               <tr>
                 <td><span class="time-badge">7:45–8:00</span></td>
                 <td>🏠 Reach Home (buffer)</td>
                 <td>15 min</td>
-                <td>Travel buffer if needed</td>
+                <td>Travel buffer if needed · Wed/Fri: already home, use for wind-down</td>
               </tr>
               <tr style="background:#F5FFF8;">
                 <td><span class="time-badge">8:00–9:15</span></td>
                 <td>🚴 Dinner + Rest + Bicycle Ride with Daughter</td>
                 <td class="hrs-badge">1 hr 15 min</td>
-                <td>🔒 Family time — NON-NEGOTIABLE · Fully enjoy, no phone study</td>
+                <td>🔒 Family time — NON-NEGOTIABLE · Fully enjoy, no phone/study</td>
               </tr>
               <tr style="background:#FFFAF0;">
                 <td><span class="time-badge">9:15–10:15</span></td>
                 <td class="subject-cell">🔢 CSAT Practice</td>
                 <td class="hrs-badge">1 hr</td>
-                <td>Quant + Reasoning · 50–60 questions · Target score: 8/10</td>
+                <td>50–60 questions · Quant + Reasoning · Target score: 8/10</td>
               </tr>
               <tr>
                 <td><span class="time-badge">10:15–10:30</span></td>
@@ -489,24 +546,19 @@
                 <td><span class="time-badge">10:30–11:30</span></td>
                 <td class="subject-cell">✅ MCQ Practice + Weak Area / Language</td>
                 <td class="hrs-badge">1 hr</td>
-                <td>40–50 MCQs (today's lecture + weak areas) <br>
-                  · Short Gujarat Culture / Gujarati–English practice
-                </td>
+                <td>40–50 MCQs (today's lecture topic + weak areas) · Short Gujarat Culture / Gujarati–English practice</td>
               </tr>
               <tr>
                 <td><span class="time-badge">11:30–11:45</span></td>
                 <td>🌙 Wind-Up + Sleep Preparation</td>
                 <td>15 min</td>
-                <td>Quick tomorrow plan · Sleep by 11:45 PM — 7 hrs must</td>
+                <td>Sleep by 11:45 PM — 7 hrs must</td>
               </tr>
             </tbody>
           </table>
         </div>
         <div style="padding:12px 16px;background:var(--light);font-size:0.82rem;color:var(--subtext);">
-          💡 <strong style="color:var(--text);">Key priority:</strong> Lecture revision (6–7:45 PM) must be done before dinner <br>
-          · 8–9:15 PM fully family ke liye — yeh motivation bhi dega 🚴 <br>
-          · Morning 9:00–10:30 AM static slot: Polity + Gujarat History/Geo pe pehle 4 months zyada focus <br>
-          · Freelancing sirf 1 hr (10:30–11:30 AM) enough hai
+          💡 <strong style="color:var(--text);">Key priority:</strong> Wed &amp; Fri — jaldi nikalna zaroori hai (1 PM lecture) · Lecture revision (6–7:45 PM) dinner se pehle complete karo · 8–9:15 PM family time is sacred 🚴
         </div>
       </div>
     </div>
@@ -515,12 +567,12 @@
     <div class="tt-panel" id="tt-saturday">
       <div style="background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
         <div style="background:#1565C0;padding:10px 16px;">
-          <span style="color:white;font-weight:600;font-size:0.9rem;">🗓️ Saturday (Short Coaching Day — Adjusted)</span>
+          <span style="color:white;font-weight:600;font-size:0.9rem;">🗓️ Saturday — CSAT Lecture Day (3:00–5:30 PM)</span>
         </div>
         <div style="overflow-x:auto;">
           <table class="timetable">
             <thead>
-              <tr><th style="width:120px;">Time</th><th>Activity</th><th style="width:80px;">Duration</th><th>Details / Notes</th></tr>
+              <tr><th style="width:130px;">Time</th><th>Activity</th><th style="width:80px;">Duration</th><th>Details / Notes</th></tr>
             </thead>
             <tbody>
               <tr style="background:#EBF2FA;">
@@ -536,24 +588,19 @@
                 <td><span class="time-badge" style="background:#1565C0;">6:30–7:15</span></td>
                 <td>🧘 Freshen Up + Breakfast</td>
                 <td class="hrs-badge">45 min</td>
-                <td>35 min shower + brush + ready · 10 min breakfast</td>
+                <td>20 min toilet · 15 min shower/brush + ready · 10 min breakfast</td>
               </tr>
               <tr style="background:#FFF8F5;">
                 <td><span class="time-badge" style="background:#1565C0;">7:15–8:45</span></td>
-                <td class="subject-cell">📰 Current Affairs</td>
+                <td class="subject-cell">📰 Current Affairs (Weekly Roundup)</td>
                 <td class="hrs-badge">1.5 hrs</td>
-                <td>
-                · The Indian Express (30–40 min) + Divya Bhaskar / Gujarat Samachar (20–25 min) <br>
-                · Gujarat schemes <br>
-                · Previous week notes quick revise <br>
-                · ½–1 page notes (important points only)
-                </td>
+                <td>Weekly CA roundup + notes · Gujarat schemes + previous week notes revise · ½–1 page notes</td>
               </tr>
               <tr style="background:#F5F8FF;">
                 <td><span class="time-badge" style="background:#1565C0;">9:00–10:00</span></td>
-                <td class="subject-cell">📚 Static Subject / CSAT</td>
+                <td class="subject-cell">📚 Static Subject / CSAT Pre-Practice</td>
                 <td class="hrs-badge">1 hr</td>
-                <td>Weak area quick revision OR 30–40 CSAT questions</td>
+                <td>Weak area quick revision OR CSAT questions (warm up for today's lecture)</td>
               </tr>
               <tr style="background:#F0F4F8;">
                 <td colspan="4" style="padding:6px 10px;font-size:0.78rem;font-weight:700;color:var(--text);letter-spacing:0.5px;">☀️ MIDDAY BLOCK — Relaxed</td>
@@ -568,34 +615,31 @@
                 <td><span class="time-badge" style="background:#1565C0;">11:00–2:30</span></td>
                 <td>🍱 Lunch + Rest / Nap + Personal Work + Travel</td>
                 <td>—</td>
-                <td>Full relaxed block · Personal errands · Travel to coaching</td>
+                <td>Full relaxed block · Personal errands · Travel to coaching centre</td>
               </tr>
               <tr style="background:#F3E5F5;">
-                <td colspan="4" style="padding:6px 10px;font-size:0.78rem;font-weight:700;color:var(--purple);letter-spacing:0.5px;">🏫 COACHING BLOCK — 2.5 hrs</td>
+                <td colspan="4" style="padding:6px 10px;font-size:0.78rem;font-weight:700;color:var(--purple);letter-spacing:0.5px;">🏫 COACHING BLOCK — CSAT Lecture (2.5 hrs)</td>
               </tr>
               <tr style="background:#FAF5FF;">
                 <td><span class="time-badge" style="background:var(--purple);">3:00–5:30</span></td>
-                <td class="subject-cell">🏫 Coaching Lecture</td>
+                <td class="subject-cell">🔢 CSAT Lecture</td>
                 <td class="hrs-badge">2.5 hrs</td>
-                <td>Full attention · Notes + doubts marked</td>
+                <td>Full attention · Shortcuts + formulas note karo · Yeh aapka weak area hai — extra focus!</td>
               </tr>
               <tr>
                 <td><span class="time-badge" style="background:var(--purple);">5:30–6:00</span></td>
                 <td>🏠 Reach Home + Freshen Up</td>
                 <td>30 min</td>
-                <td>Buffer + reach office if needed</td>
+                <td>Buffer + office if needed</td>
               </tr>
               <tr style="background:#FFF3E0;">
                 <td colspan="4" style="padding:6px 10px;font-size:0.78rem;font-weight:700;color:var(--orange);letter-spacing:0.5px;">🌙 EVENING BLOCK</td>
               </tr>
               <tr style="background:#FFF8F5;">
                 <td><span class="time-badge">6:00–7:45</span></td>
-                <td class="subject-cell">📝 Lecture Revision + Notes Making</td>
+                <td class="subject-cell">📝 CSAT Lecture Revision + Notes</td>
                 <td class="hrs-badge">1 hr 45 min</td>
-                <td>Today's lecture revise + gaps fill + concise notes banao <br>
-                  · Gujarat-specific angle add karo (schemes, examples, data) <br>
-                  · Doubts list banao (next day faculty se)
-                </td>
+                <td>CSAT concepts revise · Shortcuts note karo · Practice examples · Doubts list banao</td>
               </tr>
               <tr>
                 <td><span class="time-badge">7:45–8:00</span></td>
@@ -611,9 +655,9 @@
               </tr>
               <tr style="background:#FFFAF0;">
                 <td><span class="time-badge">9:15–10:15</span></td>
-                <td class="subject-cell">🔢 CSAT Practice</td>
+                <td class="subject-cell">🔢 CSAT Extra Practice</td>
                 <td class="hrs-badge">1 hr</td>
-                <td>45–50 questions · Quant + Reasoning</td>
+                <td>Apply today's lecture concepts · Lecture ke shortcuts practice karo · Yeh aapka score 5→8+ karega!</td>
               </tr>
               <tr>
                 <td><span class="time-badge">10:15–10:30</span></td>
@@ -625,11 +669,11 @@
                 <td><span class="time-badge">10:30–11:30</span></td>
                 <td class="subject-cell">✅ MCQ Practice + Language</td>
                 <td class="hrs-badge">1 hr</td>
-                <td>40–50 questions + Gujarati/English practice</td>
+                <td>CSAT-related MCQs + Gujarati/English practice</td>
               </tr>
               <tr>
                 <td><span class="time-badge">11:30–11:45</span></td>
-                <td>🌙 Wind Up + Sleep Preparation</td>
+                <td>🌙 Wind Up + Sleep</td>
                 <td>15 min</td>
                 <td>Sleep by 11:45 PM — 7 hrs must</td>
               </tr>
@@ -637,8 +681,7 @@
           </table>
         </div>
         <div style="padding:12px 16px;background:var(--light);font-size:0.82rem;color:var(--subtext);">
-          📌 Saturday relaxed midday (11:00 AM–2:30 PM) — use it fully for rest <br>
-          · Lecture revision 6–7:45 PM strict rakho taaki dinner 8:00 PM sharp ho sake
+          🔢 <strong style="color:var(--text);">Saturday = CSAT day</strong> — Extra CSAT practice in evening after lecture · Yeh 5/10 se 8+ banane ka best chance hai · Relaxed midday (11–2:30) — full rest before coaching
         </div>
       </div>
     </div>
@@ -647,12 +690,12 @@
     <div class="tt-panel" id="tt-sunday">
       <div style="background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
         <div style="background:var(--green);padding:10px 16px;">
-          <span style="color:white;font-weight:600;font-size:0.9rem;">☀️ Sunday — Test + Analysis Day (No Coaching)</span>
+          <span style="color:white;font-weight:600;font-size:0.9rem;">☀️ Sunday — Test + Analysis Day (No Lecture)</span>
         </div>
         <div style="overflow-x:auto;">
           <table class="timetable">
             <thead>
-              <tr><th style="width:120px;">Time</th><th>Activity</th><th style="width:80px;">Duration</th><th>Details / Notes</th></tr>
+              <tr><th style="width:130px;">Time</th><th>Activity</th><th style="width:80px;">Duration</th><th>Details / Notes</th></tr>
             </thead>
             <tbody>
               <tr style="background:#E8F8EE;">
@@ -674,7 +717,7 @@
                 <td><span class="time-badge" style="background:var(--green);">7:15–8:45</span></td>
                 <td class="subject-cell">📰 Current Affairs — Weekly Roundup</td>
                 <td class="hrs-badge">1.5 hrs</td>
-                <td>Weekly CA summary + notes revise · Previous week notes revise · Important events recap</td>
+                <td>Weekly CA summary + notes revise · Previous week notes · Important events recap</td>
               </tr>
               <tr style="background:#EBF2FA;">
                 <td colspan="4" style="padding:6px 10px;font-size:0.78rem;font-weight:700;color:var(--blue);letter-spacing:0.5px;">📝 TEST BLOCK</td>
@@ -683,28 +726,22 @@
                 <td><span class="time-badge" style="background:var(--green);">9:00–12:00</span></td>
                 <td class="subject-cell">📝 Full Subject Test</td>
                 <td class="hrs-badge">3 hrs</td>
-                <td>Coaching test series ya previous GPSC papers (100–150 questions) <br>
-                  · Real exam timing · Phone silent</td>
+                <td>This week topics: Art &amp; Culture · Environment · Science &amp; Tech · CSAT related · Coaching test series ya GPSC PYQ · Real exam timing — phone silent</td>
               </tr>
               <tr style="background:#FFF8F5;">
                 <td><span class="time-badge" style="background:var(--green);">12:00–1:30</span></td>
-                <td class="subject-cell">🔍 Test Analysis + Revision</td>
+                <td class="subject-cell">🔍 Test Analysis + Error Log</td>
                 <td class="hrs-badge">1.5 hrs</td>
-                <td>Galat sawalon ka reason likho <br>
-                  · Weak topics quick revise <br>
-                  · Error log update karo
-                </td>
+                <td>Galat sawalon ka reason likho · Weak topics quick revise · Error log update karo</td>
               </tr>
               <tr style="background:#F0F4F8;">
                 <td colspan="4" style="padding:6px 10px;font-size:0.78rem;font-weight:700;color:var(--text);letter-spacing:0.5px;">🛌 AFTERNOON — Complete Rest + Family</td>
               </tr>
               <tr>
                 <td><span class="time-badge" style="background:var(--green);">1:30 PM+</span></td>
-                <td>🍱 Lunch + Complete Rest + Family + Power Nap</td>
+                <td>🍱 Lunch + Full Rest + Family Time + Power Nap</td>
                 <td>—</td>
-                <td>No heavy study · Full rest · Family time <br>
-                  · Evening: optional 30–45 min light notes glance only
-                </td>
+                <td>No heavy study · Full rest · Evening: optional 30–45 min light notes glance only</td>
               </tr>
               <tr style="background:#FFF3E0;">
                 <td colspan="4" style="padding:6px 10px;font-size:0.78rem;font-weight:700;color:var(--orange);letter-spacing:0.5px;">🌙 EVENING BLOCK</td>
@@ -716,22 +753,10 @@
                 <td>🔒 Family time — non-negotiable even on Sunday!</td>
               </tr>
               <tr style="background:#FFFAF0;">
-                <td><span class="time-badge" style="background:var(--green);">9:15–10:15</span></td>
-                <td class="subject-cell">📚 CSAT or Light MCQ</td>
-                <td class="hrs-badge">1 hr</td>
-                <td>Agar energy ho toh CSAT ya light MCQs · Warna skip karo aur rest lo — Sunday rest bhi zaroori hai</td>
-              </tr>
-              <tr>
-                <td><span class="time-badge" style="background:var(--green);">10:15–10:30</span></td>
-                <td>🚿 Shower</td>
-                <td>15 min</td>
-                <td>Freshen up</td>
-              </tr>
-              <tr style="background:#F5F8FF;">
-                <td><span class="time-badge" style="background:var(--green);">10:30–11:30</span></td>
-                <td class="subject-cell">📖 Light Revision or Relax</td>
-                <td class="hrs-badge">1 hr</td>
-                <td>Light revision ya completely relax karo — aapki choice</td>
+                <td><span class="time-badge" style="background:var(--green);">9:15–10:45</span></td>
+                <td class="subject-cell">📚 Light CSAT / MCQ (if energy ho)</td>
+                <td class="hrs-badge">1.5 hrs</td>
+                <td>Agar energy ho toh CSAT ya light MCQs · Warna rest lo — Sunday rest bhi zaroori hai</td>
               </tr>
               <tr>
                 <td><span class="time-badge" style="background:var(--green);">11:45 PM</span></td>
@@ -743,7 +768,7 @@
           </table>
         </div>
         <div style="padding:12px 16px;background:var(--light);font-size:0.82rem;color:var(--subtext);">
-          🚫 <strong>No new topic on Sunday</strong> &nbsp;|&nbsp; 🔍 Test analysis (12:00–1:30 PM) sabse important step · Har Sunday analysis ke baad weekly progress note kar lo
+          🚫 <strong>No new topic on Sunday</strong> &nbsp;|&nbsp; 📝 Test focus: is week ke topics pe (Art &amp; Culture, Env, Sci &amp; Tech, CSAT) &nbsp;|&nbsp; 🔍 Analysis 12–1:30 PM must — weekly progress note karo
         </div>
       </div>
     </div>
@@ -822,22 +847,22 @@
         <div class="tip-card" style="border-top-color:#FFD700;">
           <div class="tip-icon">🌅</div>
           <h4>Morning Focus</h4>
-          <p>6:30 AM wake-up ke saath bhi 1.5 hrs CA + 1.5 hrs Static mil raha hai — agar focused raho toh kaafi hai.</p>
+          <p>6:30 AM wake-up ke saath 1.5 hrs CA + 1.5 hrs Static mil raha hai — agar focused raho toh kaafi hai. Quality over quantity.</p>
         </div>
         <div class="tip-card" style="border-top-color:#FFD700;">
           <div class="tip-icon">💻</div>
           <h4>Freelancing: 1 hr Only</h4>
-          <p>Weekday aur Saturday dono mein sirf 1 hr freelancing — aapne bataya enough hai. Isse zyada mat karo.</p>
+          <p>Weekday aur Saturday dono mein sirf 1 hr freelancing — enough hai. Isse zyada mat karo study time ke kharche pe.</p>
         </div>
         <div class="tip-card" style="border-top-color:#FFD700;">
           <div class="tip-icon">📝</div>
           <h4>Lecture Revision Strict</h4>
-          <p>6:00–7:45 PM revision strict rakho taaki dinner 8:00 PM sharp ho sake. Isse mat todhna.</p>
+          <p>6:00–7:45 PM revision strict rakho taaki dinner 8:00 PM sharp ho sake. Isse mat todhna — yeh sabse productive block hai.</p>
         </div>
         <div class="tip-card" style="border-top-color:#FFD700;">
           <div class="tip-icon">🚴</div>
           <h4>Family Time: 8–9:15 PM</h4>
-          <p>Daughter ke saath bicycle ride — NON-NEGOTIABLE. Yeh aapka motivation bhi dega aur burnout se bachayega.</p>
+          <p>Daughter ke saath bicycle ride — NON-NEGOTIABLE on all 7 days. Yeh motivation dega aur burnout se bachayega.</p>
         </div>
         <div class="tip-card" style="border-top-color:#FFD700;">
           <div class="tip-icon">😴</div>
@@ -847,17 +872,44 @@
         <div class="tip-card" style="border-top-color:#FFD700;">
           <div class="tip-icon">🏛️</div>
           <h4>First 4 Months Priority</h4>
-          <p>Static slot (9:00–10:30 AM) mein Polity + Gujarat History + Gujarat Geo pe zyada time do. Yeh weak areas hain.</p>
+          <p>Static slot (9:00–10:30 AM) mein Polity + Gujarat History + Gujarat Geo pe zyada time do. Lecture se related topic padho.</p>
         </div>
         <div class="tip-card" style="border-top-color:#FFD700;">
           <div class="tip-icon">📊</div>
           <h4>Sunday Tracking Must</h4>
-          <p>Har Sunday test analysis ke baad weekly progress Excel mein note kar lo. Yeh aapki growth dikhayega.</p>
+          <p>Har Sunday test analysis ke baad weekly progress Excel mein note karo. Yeh aapki growth track karega.</p>
         </div>
         <div class="tip-card" style="border-top-color:#FFD700;">
-          <div class="tip-icon">🌙</div>
-          <h4>Late Evening: Short + Focused</h4>
-          <p>9:15 PM onwards study short aur focused rakho taaki neend disturb na ho. Quality over quantity.</p>
+          <div class="tip-icon">🗒️</div>
+          <h4>Gujarat Link Daily</h4>
+          <p>Har din lecture notes mein Gujarat-specific angle add karna mat bhoolna — schemes, examples, data. Yeh Mains mein bhi kaam aayega.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- This Week Special Tips -->
+    <div style="background:var(--card);border-radius:12px;padding:20px;margin-top:14px;box-shadow:0 2px 8px rgba(0,0,0,0.06);border-left:4px solid var(--orange);">
+      <h3 style="font-size:1rem;color:var(--blue);margin-bottom:14px;">⚡ This Week Special Tips (Day-wise)</h3>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 14px;background:#FFF5F0;border-radius:8px;">
+          <span style="font-size:1.1rem;flex-shrink:0;">🎨</span>
+          <div><strong style="color:var(--orange);">Monday — Art &amp; Culture:</strong><span style="font-size:0.85rem;color:var(--text);"> Morning Static slot mein Gujarat Culture pe focus karo — lecture se directly link hoga.</span></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 14px;background:#E8F8EE;border-radius:8px;">
+          <span style="font-size:1.1rem;flex-shrink:0;">🌿</span>
+          <div><strong style="color:var(--green);">Tuesday — Environment:</strong><span style="font-size:0.85rem;color:var(--text);"> Shankar IAS ya NCERT Environment morning mein quick revise kar lo before lecture — concepts fresh rahenge.</span></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 14px;background:#FDECEA;border-radius:8px;">
+          <span style="font-size:1.1rem;flex-shrink:0;">⚡</span>
+          <div><strong style="color:var(--red);">Wednesday &amp; Friday — Science &amp; Tech (1 PM!):</strong><span style="font-size:0.85rem;color:var(--text);"> Jaldi nikalna zaroori — lunch by 11:30 AM. Lecture 1–3 PM ke baad office mein hi 3:30–5:30 PM extra study block hai: pehle 1 hr lecture revision + Gujarat angle, phir 1 hr weak area MCQs. Aapka Mechanical background helpful hai — technical points strong karo.</span></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 14px;background:#EBF2FA;border-radius:8px;">
+          <span style="font-size:1.1rem;flex-shrink:0;">📰</span>
+          <div><strong style="color:var(--blue);">Thursday — Current Affairs:</strong><span style="font-size:0.85rem;color:var(--text);"> Lecture ke saath newspaper overlap zyada hoga — morning CA notes aur lecture notes combine kar lo. Duplication avoid karo.</span></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 14px;background:#F3E5F5;border-radius:8px;">
+          <span style="font-size:1.1rem;flex-shrink:0;">🔢</span>
+          <div><strong style="color:var(--purple);">Saturday — CSAT Lecture:</strong><span style="font-size:0.85rem;color:var(--text);"> Extra CSAT practice karo — yeh aapka 5/10 se 8+ banane ka best chance hai. Lecture ke shortcuts evening mein immediately apply karo.</span></div>
         </div>
       </div>
     </div>
